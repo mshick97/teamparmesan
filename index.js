@@ -51,14 +51,7 @@ function markSquare(id) {
 
 // Determines the different win cases / if there is a draw
 function playerWinOrTie() {
-    if (gameDrawn() === true) {
-        roundWinner = 'draw';
-        console.log('draw');
-        console.log(roundWinner);
-        displayModal();
-        increasePlayerScore();
-        return roundOver = true;
-    } else if (gameObject['top-left'] == 'x' && gameObject['top-center'] == 'x' && gameObject['top-right'] == 'x') {
+    if (gameObject['top-left'] == 'x' && gameObject['top-center'] == 'x' && gameObject['top-right'] == 'x') {
         roundWinner = 'x';
         console.log('o winner');
         console.log(roundWinner);
@@ -130,7 +123,7 @@ function playerWinOrTie() {
         return roundOver = true;
         /* This condition is at the end because we know that if the entire game board is filled, represented my checkGameState 
         returning true, the game is a draw because all of the above conditions were not met */
-    } else if (checkGameState === true) {
+    } else if (gameDrawn() === true) {
         roundWinner = 'draw';
         console.log('draw');
         console.log(roundWinner);
