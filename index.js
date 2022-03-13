@@ -18,9 +18,9 @@ const gameObject = {
 }
 
 // This function checks all the values on our game board. If the key value pairs ever evaluate to all true (or simply all of the values are no longer undefined) then it returns to true; will be useful to indicate a draw
-const checkGameState = function () {
+function gameDrawn() {
     for (let gameMoves in gameObject)
-        if (!gameObject[gameMoves]) return false;
+        if (gameObject[gameMoves] == undefined) return false;
     return true;
 }
 
@@ -51,7 +51,14 @@ function markSquare(id) {
 
 // Determines the different win cases / if there is a draw
 function playerWinOrTie() {
-    if (gameObject['top-left'] == 'x' && gameObject['top-center'] == 'x' && gameObject['top-right'] == 'x') {
+    if (gameDrawn() === true) {
+        roundWinner = 'draw';
+        console.log('draw');
+        console.log(roundWinner);
+        displayModal();
+        increasePlayerScore();
+        return roundOver = true;
+    } else if (gameObject['top-left'] == 'x' && gameObject['top-center'] == 'x' && gameObject['top-right'] == 'x') {
         roundWinner = 'x';
         console.log('o winner');
         console.log(roundWinner);
