@@ -46,7 +46,7 @@ function markSquare(id) {
         console.log(id);
         playerWinOrTie();
         player = 'x';
-  }
+    }
 }
 
 // Determines the different win cases / if there is a draw
@@ -130,7 +130,7 @@ function playerWinOrTie() {
         displayModal();
         increasePlayerScore();
         return roundOver = true;
-  }
+    }
 }
 
 // Function to change the html text for player scores
@@ -141,22 +141,22 @@ function increasePlayerScore() {
     } else if (roundWinner == 'o') {
         // Affect html text element here
         return score['o']++;
-    } 
-    if (score['x'] === 3){ // conditional score is incremented to 3
-      resetGame();
-      return gameWinner = 'x';// return game winner assined to cooresponding player
-  }  else if (score['o'] === 3) {
-      resetGame();
-      return gameWinner ='o';
-    } else {    // conditional for tie, dont increment and return 
-      return;
     }
-  }
+    if (score['x'] === 3) { // conditional score is incremented to 3
+        resetGame();
+        return gameWinner = 'x';// return game winner assined to cooresponding player
+    } else if (score['o'] === 3) {
+        resetGame();
+        return gameWinner = 'o';
+    } else {    // conditional for tie, dont increment and return 
+        return;
+    }
+}
 
 
 function displayModal(id) {
-  document.getElementById(id).displayP = "winner-wrapper";
-  if (roundWinner == 'x') {
+    document.getElementById(id).displayP = "winner-wrapper";
+    if (roundWinner == 'x') {
         document.getElementById(id).className = "x-wins-round";
     } else if (roundWinner == 'o') {
         document.getElementById(id).className = "o-wins-round";
@@ -166,7 +166,7 @@ function displayModal(id) {
         document.getElementById(id).className = "x-wins";
     } else if (gameWinner == 'o') {
         document.getElementById(id).className = "o-wins";
-    } 
+    }
 }
 
 function resetButton() {
@@ -186,13 +186,15 @@ function resetButton() {
 }
 
 function resetGame() {
-  for (let gameSquare in gameObject) {
-      gameObject[gameSquare] = undefined;
-  }
-  for (let player in score) {
-      score[player] = 0;
+    for (let gameSquare in gameObject) {
+        gameObject[gameSquare] = undefined;
+    }
+    for (let player in score) {
+        score[player] = 0;
     }
     player = 'x';
     gameOver = false;
     winningPlayer = undefined;
 }
+
+// Test push 1 Max
