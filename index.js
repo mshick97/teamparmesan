@@ -154,8 +154,8 @@ function increasePlayerScore() {
 }
 
 
-function displayModal(id) {
-    document.getElementById(id).displayP = "winner-wrapper";
+function displayModal() {
+    document.getElementById(id).className = "winner-wrapper";
     if (roundWinner == 'x') {
         document.getElementById(id).className = "x-wins-round";
     } else if (roundWinner == 'o') {
